@@ -1,3 +1,6 @@
+# Исключить файл с конфиденциальными данными
+utilities\constants.dart
+
 # Miscellaneous
 *.class
 *.log
