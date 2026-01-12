@@ -1,5 +1,7 @@
 import 'package:weather_project/utilities/constans.dart';
 
+// Модель данных для прогноза погоды, соответствует ответу OpenWeather API.
+// Содержит информацию о городе, списке погодных данных на несколько дней и служебных полях.
 class WeatherModel {
   City? city;
   late String cod;
@@ -41,6 +43,8 @@ class WeatherModel {
     return data;
   }
 }
+
+// Класс City представляет информацию о городе: координаты, название, страна, население и временные данные (восход/закат).
 
 class City {
   late int id;
@@ -90,6 +94,8 @@ class City {
   }
 }
 
+// Класс Coord хранит географические координаты (широту и долготу).
+
 class Coord {
   late double lat;
   late double lon;
@@ -107,6 +113,9 @@ class Coord {
     return {'lat': lat, 'lon': lon};
   }
 }
+
+// WeatherList — элемент прогноза погоды на конкретный момент времени (например, каждые 3 часа).
+// Включает температуру, погодные условия, ветер, облака и другие параметры.
 
 class WeatherList {
   late int dt;
@@ -171,10 +180,15 @@ class WeatherList {
     return data;
   }
 
+  // Метод getIconUrl() формирует URL для загрузки иконки погоды на основе кода иконки.
+  // Использует константу из Constants.WEATHER_IMAGES_URL.
+
   String getIconUrl() {
     return Constants.WEATHER_IMAGES_URL + weather[0].icon + '.png';
   }
 }
+
+// Класс Main содержит основные метеопараметры: температуру, ощущаемую температуру, давление и влажность.
 
 class Main {
   late double temp;
@@ -227,6 +241,9 @@ class Main {
     };
   }
 }
+
+// Класс Weather описывает погодное состояние (облачность, дождь и т.п.) по ID, основному описанию и иконке.
+// Иконка используется для отображения погоды через метод getIconUrl().
 
 class Weather {
   late int id;
@@ -292,6 +309,9 @@ class Wind {
     return data;
   }
 }
+
+// Классы Rain и Snow содержат данные об осадках за последние 3 часа ('3h').
+// Поле помечено аннотацией @JsonKey, чтобы корректно сериализоваться/десериализоваться.
 
 class Rain {
   @JsonKey(name: '3h')
