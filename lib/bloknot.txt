@@ -1,0 +1,8 @@
+API Keys - 1369dd6b5ae78fc9952261ab9aa236b4
+
+
+api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}      //про имени города
+api.openweathermap.org/data/2.5/forecast/daily?q=Слуцк&appid=1369dd6b5ae78fc9952261ab9aa236b4
+
+
+api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}   //по GPS
